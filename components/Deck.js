@@ -30,7 +30,6 @@ class Deck extends Component {
     }
 
    addMoreQuestion = () => {
-     console.log (this.props)
       this.props.navigation.navigate ('AddQuestion', {id:this.state.deckId})
 
    }
@@ -51,12 +50,12 @@ class Deck extends Component {
       if (deck) {
 
         const questions_in_deck = objectToArray(deck.questions)
-        console.log (questions_in_deck)
+
         return(
           <View style = {styles.deckView}>
           <Text style={styles.cardTitle} > DeckName: {deck.title} </Text>
           <Text style={styles.questionsCount}> Questions: {questions_in_deck.length}  </Text>
-          <Button title="New Question" onPress = {this.addMoreQuestion}/> 
+          <Button title="New Question" onPress = {this.addMoreQuestion}/>
 
           <Button title="Start Quiz" type='success' onPress = {this.startQuiz} />
           <Button title="Go Back" type='danger' onPress = {this.goBack} />
@@ -101,7 +100,6 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(deck,{ navigation }) {
-  console.log ("Deck Component: " + JSON.stringify(deck))
   return {
      deck
   }

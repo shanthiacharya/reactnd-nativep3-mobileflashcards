@@ -4,10 +4,8 @@ import {uniqueNumber} from './utils'
 
 export function populateDecks (results) {
   if (results === null) {
-    // console.log ("Results Null: " + setInitialData())
     return setInitialData()
   }
-
     return JSON.parse (results)
 
 }

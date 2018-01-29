@@ -42,21 +42,30 @@ class FinalScores extends Component {
         score: finalscore
         }
 
-        clearLocalNotification()
-          .then(setLocalNotification)
+
 
      }
 
+
+    resetNotification =() => {
+        clearLocalNotification()
+          .then(setLocalNotification)
+    }
+
     startQuiz = () => {
+
         this.props.navigation.navigate ('Quiz', {id:this.props.id})
      }
 
    gobacktoDeck = () => {
         this.props.navigation.navigate ('Deck',{id:this.props.id})
+        this.resetNotification()
      }
 
    goBacktoHome = () => {
+
         this.props.navigation.navigate ('Home')
+        this.resetNotification()
      }
 
 

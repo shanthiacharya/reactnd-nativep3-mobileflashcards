@@ -8,8 +8,6 @@ class DeckListItem extends Component {
 
     componentDidMount(){
 
-     // console.log("DeckList:" + JSON.stringify(this.props))
-
     }
 
     handleDeckDisplay = () => {

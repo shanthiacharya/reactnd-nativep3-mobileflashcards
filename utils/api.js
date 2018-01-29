@@ -13,7 +13,7 @@ export function clearAll () {
 }
 //getDecks: return all of the decks along with their titles, questions, and answers.
 export function fetchDecks () {
-  clearAll()
+
     return AsyncStorage.getItem(FLASHCARDS_STORAGE_KEY)
       .then (populateDecks)
 }
@@ -31,10 +31,8 @@ export function getDeckById(id) {
 
 //saveDeckTitle: take in a single title argument and add it to the decks.
 export function addDeck (newdeck) {
-    // clearAll()
-    console.log ("New Deck Adding: " + newdeck.id +JSON.stringify(newdeck) )
+
    return AsyncStorage.mergeItem (FLASHCARDS_STORAGE_KEY, JSON.stringify({
-    
        [newdeck.id]:newdeck
 
      }))

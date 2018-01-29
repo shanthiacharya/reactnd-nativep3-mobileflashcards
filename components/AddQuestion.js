@@ -44,9 +44,7 @@ class AddQuestion extends Component {
 
         getDeckById(id)
         .then(deck => {
-          console.log("GetDeckbyId Deck:" + JSON.stringify(deck)  )
           deck.questions.push({question,answer})
-            console.log("GetDeckbyId Deck:" + JSON.stringify(deck) + "qUESTIONS" + deck.questions  )
             addDeck (deck)
             .then(() => {
               fetchDecks().then((decksNew) => {
@@ -117,7 +115,7 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps ( decks ) {
-   console.log("Map State to Props DeckList: " + JSON.stringify(decks))
+  
     return {
           decks
        }

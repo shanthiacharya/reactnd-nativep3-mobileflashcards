@@ -5,7 +5,7 @@ import {fetchDecks,addDeck} from '../utils/api'
 import {receiveDecks} from '../actions'
 import {uniqueNumber} from '../utils/utils'
 // import {Bubble,Button} from 'nachos-ui'
-import {black} from '../utils/colors'
+import {black,red} from '../utils/colors'
 
 
 class CreateDeck extends Component {
@@ -35,8 +35,14 @@ class CreateDeck extends Component {
           title: this.state.title,
           questions: []
         }
-        addDeck(deck).then(res => res.json())
 
+        addDeck(deck).then(()=> {
+          fetchDecks().then ((decks) => {
+            dispatch (receiveDecks(decks))
+            this.props.navigation.navigate ('AddQuestion', {id:this.state.id})
+            this.setState({title:''});
+          })
+        })
 
         }
     }
@@ -60,7 +66,7 @@ class CreateDeck extends Component {
     }
 }
 
-const bubbleStyle = { marginBottom: 10 }
+const bubbleStyle = { marginBottom: 10 , color: red}
 
 const styles = StyleSheet.create({
   deckView: {
